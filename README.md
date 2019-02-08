@@ -73,7 +73,7 @@ The generated HTML will be beautified using [js-beautify](https://github.com/bea
 },
 ```
 
-To use custom [hjs-beautify options](https://github.com/beautify-web/js-beautify#css--html)
+To use custom [js-beautify options](https://github.com/beautify-web/js-beautify#css--html)
 pass an object to `beautify`
 
 To disable beatification during production mode set the `beautify` option to `false`.
