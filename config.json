@@ -1,17 +1,15 @@
 {
-    "options": {
-        "minify": {
-            "removeEmptyAttributes": true,
-            "preserveLineBreaks": true,
-            "keepClosingSlash": true,
-            "removeComments": true,
-            "conservativeCollapse": true,
-            "collapseWhitespace": true,
-            "preserveLineBreaks": true
-        },
-        "beautify": {
-            "intent_size": 4
-        }
+    "minify": {
+        "removeEmptyAttributes": true,
+        "preserveLineBreaks": true,
+        "keepClosingSlash": true,
+        "removeComments": true,
+        "conservativeCollapse": true,
+        "collapseWhitespace": true,
+        "preserveLineBreaks": true
+    },
+    "beautify": {
+        "intent_size": 4
     },
     "pluginOptions": {
         "verbose": false
