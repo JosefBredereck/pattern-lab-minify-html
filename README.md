@@ -67,7 +67,7 @@ The generated HTML will be beautified using [js-beautify](https://github.com/bea
     ...
     "beautify": {
         "intent_size": 4,
-        "end-with-newline": true,
+        "end_with_newline": true,
         "inline": true
     }
 },
