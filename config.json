@@ -9,7 +9,7 @@
         "preserveLineBreaks": true
     },
     "beautify": {
-        "indent-with-tabs": true
+        "indent_with_tabs": true
     },
     "pluginOptions": {
         "verbose": false
