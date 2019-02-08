@@ -20,5 +20,3 @@ Optional eslint cache
 
 # dotenv environment variables file
 .env
-
-package-lock.json
