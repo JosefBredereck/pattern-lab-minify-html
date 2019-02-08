@@ -1,7 +1,3 @@
-![license](https://img.shields.io/github/license/pattern-lab/plugin-node-tab.svg)
-[![npm](https://img.shields.io/npm/v/plugin-node-tab.svg)](https://www.npmjs.com/package/plugin-node-tab)
-[![Gitter](https://img.shields.io/gitter/room/pattern-lab/php.svg)](https://gitter.im/pattern-lab/php)
-
 # Minify and Beautify Plugin for Pattern Lab Node
 
 The Minify HTML Plugin allows [Pattern Lab Node](https://github.com/pattern-lab/patternlab-node) users to minify and beautify the HTML template of all patterns. If the right options are passed, HTML errors like empty attributes can be prevented (id="" and class="") and the production code size can be reduced.
@@ -10,7 +6,7 @@ The Minify HTML Plugin allows [Pattern Lab Node](https://github.com/pattern-lab/
 
 To add the Tab Plugin to your project using [npm](http://npmjs.com/) type:
 
-    `npm install plugin-node-minify-html --save`
+    npm install plugin-node-minify-html --save
 
 Or add it directly to your project's `package.json` file and run `npm install`
 
