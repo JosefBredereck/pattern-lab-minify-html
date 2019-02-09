@@ -29,6 +29,7 @@
     "keywords": [
         "Patternlab",
         "node",
+        "plugin",
         "html",
         "beautify",
         "minify",
