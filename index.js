@@ -42,7 +42,7 @@ function getPluginFrontendConfig() {
         'templates': [],
         'stylesheets': [],
         'javascripts': ['patternlab-components\/pattern-lab\/' + pluginName + '\/js\/' + pluginName + '.js'],
-        'onready': '',
+        'onready': 'PluginPlMinify.init()',
         'callback': ''
     };
 }
