@@ -1,6 +1,6 @@
 {
     "name": "plugin-node-minify-html",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "The Minify HTML Plugin allows [Pattern Lab Node](https://github.com/pattern-lab/patternlab-node) users to minify and beautify the HTML template of all patterns. If the right options are passed, HTML errors like empty attributes can be prevented (id=\"\" and class=\"\") and the production code size can be reduced.",
     "main": "index.js",
     "dependencies": {
