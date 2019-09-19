@@ -24,7 +24,7 @@
     },
     "homepage": "https://github.com/SlimeGames/plugin-node-minify-html",
     "devDependencies": {
-        "eslint": "^5.13.0"
+        "eslint": "^6.4.0"
     },
     "keywords": [
         "Patternlab",
