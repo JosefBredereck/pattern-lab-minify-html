@@ -26,10 +26,10 @@ Example:
     "initialized": false,
     "options": {
         "minify": { },
-        "beautify": { }
-    },
-    "pluginOptions": {
-        "verbose": false
+        "beautify": { },
+        "pluginOptions": {
+            "verbose": false
+        }
     }
 }
 ```
