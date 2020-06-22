@@ -17,8 +17,9 @@ function writeConfigToOutput(patternlab, pluginConfig) {
     }
 }
 
-function onPatternIterate(patternlab, pattern) {
-    pattern_minify(patternlab, pattern);
+async function onPatternIterate(params) {
+    const [patternlab, pattern] = params;
+    await pattern_minify(patternlab, pattern);
 }
 
 /**
