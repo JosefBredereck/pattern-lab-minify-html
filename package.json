@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SlimeGames/plugin-node-minify-html.git"
+    "url": "git+https://github.com/JosefBredereck/plugin-node-minify-html.git"
   },
   "scripts": {
     "test": "eslint src/** index.js postinstall.js",
@@ -20,9 +20,9 @@
   "author": "Josef Bredereck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SlimeGames/plugin-node-minify-html/issues"
+    "url": "https://github.com/JosefBredereck/plugin-node-minify-html/issues"
   },
-  "homepage": "https://github.com/SlimeGames/plugin-node-minify-html",
+  "homepage": "https://github.com/JosefBredereck/plugin-node-minify-html",
   "devDependencies": {
     "eslint": "^6.4.0"
   },
