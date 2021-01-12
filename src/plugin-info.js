@@ -1,3 +1,3 @@
 module.exports = {
-  pluginName: "pattern-lab-minify-html",
+  pluginName: 'pattern-lab-minify-html',
 };

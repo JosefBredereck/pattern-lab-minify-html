@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-const pattern_minify = require("./src/pattern-minify");
-const { pluginName } = require("./src/plugin-info");
+const patternMinify = require('./src/pattern-minify');
+const { pluginName } = require('./src/plugin-info');
 
 async function onPatternIterate(params) {
   const [patternlab, pattern] = params;
-  await pattern_minify(patternlab, pattern);
+  await patternMinify(patternlab, pattern);
 }
 
 /**
@@ -15,7 +15,7 @@ async function onPatternIterate(params) {
  */
 function registerHooks(patternlab) {
   // register our handler at the appropriate time of execution
-  patternlab.hooks["patternlab-pattern-write-end"].push(onPatternIterate);
+  patternlab.hooks['patternlab-pattern-write-end'].push(onPatternIterate);
 }
 
 /**
@@ -24,7 +24,7 @@ function registerHooks(patternlab) {
  */
 function pluginInit(patternlab) {
   if (!patternlab) {
-    console.error("patternlab object not provided to plugin-init");
+    console.error('patternlab object not provided to plugin-init');
     process.exit(1);
   }
 
