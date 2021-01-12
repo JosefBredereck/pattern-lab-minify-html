@@ -1,34 +1,34 @@
-"use strict";
+'use strict';
 
-const { pluginName } = require("./plugin-info");
+const { pluginName } = require('./plugin-info');
 
-const minifier = require("html-minifier").minify;
-const beautifyHtml = require("js-beautify").html;
-const path = require("path");
-const fs = require("fs-extra");
+const minifier = require('html-minifier').minify;
+const beautifyHtml = require('js-beautify').html;
+const path = require('path');
+const fs = require('fs-extra');
 
 async function runTask(patternlab, pattern) {
   if (!patternlab) {
-    console.error(Error(pluginName + ": patternlab object not provided"));
+    console.error(Error(pluginName + ': patternlab object not provided'));
     process.exit(1);
   }
 
   if (!pattern) {
-    console.error(Error(pluginName + ": pattern object not provided"));
+    console.error(Error(pluginName + ': pattern object not provided'));
     process.exit(1);
   }
 
-  let options = patternlab.config.plugins[pluginName].options;
-  let pluginOptions = options.pluginOptions;
+  const options = patternlab.config.plugins[pluginName].options;
+  const pluginOptions = options.pluginOptions;
 
   if (!pluginOptions || !options) {
-    console.error(Error(pluginName + ": missing Plugin options"));
+    console.error(Error(pluginName + ': missing Plugin options'));
     process.exit(1);
   }
 
   if (pluginOptions.verbose) {
     console.log(
-      "Starting to optimize HTML of " + pattern.patternPartial + "..."
+      'Starting to optimize HTML of ' + pattern.patternPartial + '...'
     );
   }
 
@@ -42,12 +42,12 @@ async function runTask(patternlab, pattern) {
       )
     );
 
-  const files = [...makePath("rendered"), ...makePath("markupOnly")];
+  const files = [...makePath('rendered'), ...makePath('markupOnly')];
 
   await Promise.all(
     files.map((file) => {
       return new Promise((resolve, reject) => {
-        fs.readFile(file, "utf8", (err, source) => {
+        fs.readFile(file, 'utf8', (err, source) => {
           if (err) reject(err);
 
           let result = options.minify

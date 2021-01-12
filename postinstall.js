@@ -1,11 +1,11 @@
-const path = require("path");
-const fs = require("fs-extra");
-const pluginConfig = require("./config.json");
-const { pluginName } = require("./src/plugin-info");
+const path = require('path');
+const fs = require('fs-extra');
+const pluginConfig = require('./config.json');
+const { pluginName } = require('./src/plugin-info');
 
 console.log(`Installing Pattern Lab Node Plugin - "${pluginName}". `);
 
-const patternLabCofigName = "patternlab-config.json";
+const patternLabCofigName = 'patternlab-config.json';
 const configPath = path.resolve(`./${patternLabCofigName}`);
 try {
   const plConfig = fs.readJSONSync(configPath);
@@ -25,5 +25,5 @@ try {
 
 console.log(`Pattern Lab Node Plugin - "${pluginName}" installed. `);
 console.log(
-  "Configure or disable this plugin inside your patternlab-config.json file."
+  'Configure or disable this plugin inside your patternlab-config.json file.'
 );
