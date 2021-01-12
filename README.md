@@ -6,7 +6,7 @@ The Minify HTML Plugin allows [Pattern Lab Node](https://github.com/pattern-lab/
 
 To add the Tab Plugin to your project using [npm](http://npmjs.com/) type:
 
-    npm install plugin-node-minify-html
+    npm install pattern-lab-minify-html
 
 Or add it directly to your project's `package.json` file and run `npm install`
 
@@ -21,7 +21,7 @@ Post-installation, you will see the following in your `patternlab-config.json`:
 Example:
 
 ```
-"plugin-node-minify-html": {
+"pattern-lab-minify-html": {
     "enabled": true,
     "initialized": false,
     "options": {
