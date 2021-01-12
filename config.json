@@ -1,17 +1,16 @@
 {
-    "minify": {
-        "removeEmptyAttributes": true,
-        "preserveLineBreaks": true,
-        "keepClosingSlash": true,
-        "removeComments": true,
-        "conservativeCollapse": true,
-        "collapseWhitespace": true,
-        "preserveLineBreaks": true
-    },
-    "beautify": {
-        "indent_with_tabs": true
-    },
-    "pluginOptions": {
-        "verbose": false
-    }
+  "minify": {
+    "removeEmptyAttributes": true,
+    "preserveLineBreaks": true,
+    "keepClosingSlash": true,
+    "removeComments": true,
+    "conservativeCollapse": true,
+    "collapseWhitespace": true
+  },
+  "beautify": {
+    "indent_with_tabs": true
+  },
+  "pluginOptions": {
+    "verbose": false
+  }
 }
