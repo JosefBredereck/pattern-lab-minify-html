@@ -1,17 +1,17 @@
 {
-  "name": "plugin-node-minify-html",
+  "name": "pattern-lab-minify-html",
   "version": "1.0.9",
   "description": "The Minify HTML Plugin allows [Pattern Lab Node](https://github.com/pattern-lab/patternlab-node) users to minify and beautify the HTML template of all patterns. If the right options are passed, HTML errors like empty attributes can be prevented (id=\"\" and class=\"\") and the production code size can be reduced.",
   "main": "index.js",
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "glob": "^7.1.3",
-    "html-minifier": "^3.5.21",
-    "js-beautify": "^1.8.9"
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "html-minifier": "^4.0.0",
+    "js-beautify": "^1.13.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JosefBredereck/plugin-node-minify-html.git"
+    "url": "git+https://github.com/JosefBredereck/pattern-lab-minify-html.git"
   },
   "scripts": {
     "test": "eslint src/** index.js postinstall.js",
@@ -20,14 +20,16 @@
   "author": "Josef Bredereck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JosefBredereck/plugin-node-minify-html/issues"
+    "url": "https://github.com/JosefBredereck/pattern-lab-minify-html/issues"
   },
-  "homepage": "https://github.com/JosefBredereck/plugin-node-minify-html",
+  "homepage": "https://github.com/JosefBredereck/pattern-lab-minify-html",
   "devDependencies": {
-    "eslint": "^6.4.0"
+    "eslint": "^7.17.0"
   },
   "keywords": [
     "Patternlab",
+    "Pattern",
+    "Lab",
     "node",
     "plugin",
     "html",

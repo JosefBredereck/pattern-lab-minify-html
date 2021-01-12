@@ -1,63 +1,79 @@
 "use strict";
 
-const pluginName = 'plugin-node-minify-html';
+const { pluginName } = require("./plugin-info");
 
-const minifier = require('html-minifier').minify;
-const beautifyHtml = require('js-beautify').html;
-const path = require('path');
-const fs = require('fs');
-const fsExtra = require('fs-extra');
+const minifier = require("html-minifier").minify;
+const beautifyHtml = require("js-beautify").html;
+const path = require("path");
+const fs = require("fs-extra");
 
-function runTask(patternlab, pattern) {
-    return new Promise((resolve, reject) => {
-        if (!patternlab) {
-            reject(Error(pluginName + ': patternlab object not provided'));
-            process.exit(1);
-        }
+async function runTask(patternlab, pattern) {
+  if (!patternlab) {
+    console.error(Error(pluginName + ": patternlab object not provided"));
+    process.exit(1);
+  }
 
-        if (!pattern) {
-            reject(Error(pluginName + ': pattern object not provided'));
-            process.exit(1);
-        }
+  if (!pattern) {
+    console.error(Error(pluginName + ": pattern object not provided"));
+    process.exit(1);
+  }
 
-        let options = patternlab.config.plugins[pluginName].options;
-        let pluginOptions = options.pluginOptions;
+  let options = patternlab.config.plugins[pluginName].options;
+  let pluginOptions = options.pluginOptions;
 
-        if (!pluginOptions || !options) {
-            reject(Error(pluginName + ': missing Plugin options'));
-            process.exit(1);
-        }
+  if (!pluginOptions || !options) {
+    console.error(Error(pluginName + ": missing Plugin options"));
+    process.exit(1);
+  }
 
-        if (pluginOptions.verbose) {
-            console.log('Starting to optimize HTML of ' + pattern.patternPartial + '...');
-        }
+  if (pluginOptions.verbose) {
+    console.log(
+      "Starting to optimize HTML of " + pattern.patternPartial + "..."
+    );
+  }
 
-        const paths = patternlab.config.paths;
-        const makePath = type => path.join(paths.public.patterns, pattern.getPatternLink(patternlab, type));
+  const makePath = (type) =>
+    Object.keys(patternlab.uikits).map((uikit) =>
+      path.join(
+        process.cwd(),
+        patternlab.uikits[uikit].outputDir,
+        patternlab.config.paths.public.patterns,
+        pattern.getPatternLink(patternlab, type)
+      )
+    );
 
-        const files = [makePath('rendered'), makePath('markupOnly')];
+  const files = [...makePath("rendered"), ...makePath("markupOnly")];
 
-        files.forEach(file => {
-            fs.readFile(file, 'utf8', (err, source) => {
-                if (err) throw err;
+  await Promise.all(
+    files.map((file) => {
+      return new Promise((resolve, reject) => {
+        fs.readFile(file, "utf8", (err, source) => {
+          if (err) reject(err);
 
-                let result = options.minify ? minifier(source, options.minify) : source;
+          let result = options.minify
+            ? minifier(source, options.minify)
+            : source;
 
-                if (options.beautify)
-                    result = beautifyHtml(result, options.beautify);
+          if (options.beautify) result = beautifyHtml(result, options.beautify);
 
-                if (pluginOptions.verbose) {
-                    console.log('Processed ' + path.basename(file) +
-                        ', before: ' + source.length + ', after: ' + result.length +
-                        ', ratio: ' + Math.round(((result.length * 100) / source.length) * 100) / 100 + '%');
-                }
+          if (pluginOptions.verbose) {
+            console.log(
+              `Processed ${path.basename(file)}, before: ${
+                source.length
+              }, after: ${result.length}, ratio: ${
+                Math.round(((result.length * 100) / source.length) * 100) / 100
+              }%`
+            );
+          }
 
-                fsExtra.outputFile(file, result, (err, data) => {
-                    if (err) throw err;
-                });
-            });
+          fs.outputFile(file, result, (err, data) => {
+            if (err) reject(err);
+            resolve();
+          });
         });
-    });
+      });
+    })
+  );
 }
 
 /**
@@ -66,12 +82,4 @@ function runTask(patternlab, pattern) {
  * @param patternlab - the global data store
  * @param pattern - the pattern object being iterated over
  */
-module.exports = function(patternlab, pattern) {
-    try {
-        runTask(patternlab, pattern).then(result => {
-            // Nothing to do at the moment
-        }).catch(error => console.log(error));
-    } catch (e) {
-        console.log(e);
-    }
-};
+module.exports = runTask;
